@@ -15,6 +15,19 @@ const postRouter = express.Router();
 postRouter.post("/", upload.single("image"),postControllers.createPostControllers)
 
 
+/**
+ * GET /api/posts/ [protected]
+ */
+
+postRouter.get("/", postControllers.getPostControllers)
+
+
+/**
+ * GET /api/posts/details/:postId
+ * - return an detail about specific post with the id. also check whether the post belongs to the user that the request come from 
+ */
+
+postRouter.get("/details/:postId",postControllers.getPostDetailsControllers)
 
 
 
